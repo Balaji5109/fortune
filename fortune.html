@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fortune Cookie</title>
+  <style>
+    body {
+      background: url('cookies.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .cookie-box {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+    }
+
+    button {
+      background-color: #ff8c00;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e07b00;
+    }
+
+    .fortune {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #555;
+      min-height: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🥠 Fortune Cookie</h1>
+  <div class="cookie-box">
+    <button onclick="showFortune()">Open Cookie</button>
+    <p class="fortune" id="fortune"></p>
+  </div>
+
+  <script>
+    const fortunes = [
+  "You will have a great day!",
+  "Success is coming your way soon.",
+  "Expect a pleasant surprise today.",
+  "Hard work will pay off very soon.",
+  "A new opportunity is around the corner.",
+  "Stay positive and good things will happen.",
+  "Someone is thinking of you right now.",
+  "Your kindness will lead you to greatness.",
+  "Big changes are coming — embrace them!",
+  "The best is yet to come.",
+  "You are capable of amazing things.",
+  "A dream you have will soon come true.",
+  "You are on the right path — keep going.",
+  "Joy is heading your way.",
+  "Be proud of how far you’ve come.",
+  "Something wonderful is about to happen.",
+  "Good news will find you today.",
+  "A fresh start will put you on your way.",
+  "Believe in yourself and magic will happen.",
+  "Today is a perfect day to be happy."
+    ];
+
+    function showFortune() {
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      const fortuneText = fortunes[randomIndex];
+      const luckyNumber = Math.floor(Math.random() * 90) + 1; // lucky number between 10–99
+
+       document.getElementById("fortune").innerHTML = `
+        <strong>${fortuneText}</strong><br>
+        <span class="lucky">🍀 Your lucky number: <strong>${luckyNumber}</strong></span>
+      `;
+
+    }
+  </script>
+
+</body>
+</html>
